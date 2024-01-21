@@ -1,5 +1,7 @@
 
 class OutputHandler():
+    def __init__(self):
+        pass
     def setOutputFolderPath(self, path):
         self.ouptputFolderPath = path
 
