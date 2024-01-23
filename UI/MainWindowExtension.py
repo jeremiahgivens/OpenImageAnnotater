@@ -15,11 +15,11 @@ class MainWindowExtension(Ui_MainWindow):
         self.setupUi(MainWindow)
         self.connectInputs()
         self.actionSettings.triggered.connect(self.createNew)
+        self.settingsWidget = QtWidgets.QWidget()
+        self.settingsWindow = SettingsWidgetExtension(self.outputHandler, self.modelHandler, self.settingsWidget)
 
     def createNew(self):
-        SettingsWidget = QtWidgets.QWidget()
-        ui = SettingsWidgetExtension(self.outputHandler, self.modelHandler, SettingsWidget)
-        SettingsWidget.show()
+        self.settingsWidget.show()
 
     def connectInputs(self):
         pass
