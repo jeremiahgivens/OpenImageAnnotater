@@ -5,9 +5,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = UI.MainWindowExtension.MainWindowExtension()
-    ui.setupUi(MainWindow)
-    ui.connectInputs()
+    ui = UI.MainWindowExtension.MainWindowExtension(MainWindow)
     MainWindow.show()
     sys.exit(app.exec())
 
