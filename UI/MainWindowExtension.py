@@ -14,7 +14,7 @@ class MainWindowExtension(Ui_MainWindow):
         self.modelHandler = ModelHandler()
         self.setupUi(MainWindow)
         self.connectInputs()
-        self.actionSettings.triggered.connect(self.createNew)
+        self.actionSetup.triggered.connect(self.createNew)
         self.settingsWidget = QtWidgets.QWidget()
         self.settingsWindow = SettingsWidgetExtension(self.outputHandler, self.modelHandler, self.settingsWidget)
 

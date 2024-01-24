@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>703</width>
-    <height>689</height>
+    <width>593</width>
+    <height>554</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Open Image Annotator</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -20,7 +20,7 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="1,7">
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_3">
+         <layout class="QVBoxLayout" name="verticalLayout_3" stretch="1,1,1,1,1,1,20">
           <item>
            <widget class="QPushButton" name="nextImage">
             <property name="text">
@@ -74,68 +74,7 @@
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
-            <item>
-             <property name="text">
-              <string>New Item</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>New Item</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>New Item</string>
-             </property>
-            </item>
            </widget>
-          </item>
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_3">
-            <property name="topMargin">
-             <number>0</number>
-            </property>
-            <item>
-             <widget class="QPushButton" name="addClass">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="text">
-               <string>Add</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="deleteClass">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="text">
-               <string>Delete</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <spacer name="verticalSpacer">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>119</width>
-              <height>13</height>
-             </size>
-            </property>
-           </spacer>
           </item>
          </layout>
         </item>
@@ -153,7 +92,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>703</width>
+     <width>593</width>
      <height>22</height>
     </rect>
    </property>
@@ -165,8 +104,7 @@
      <string>File</string>
     </property>
     <addaction name="actionLoad_Existing"/>
-    <addaction name="actionNew"/>
-    <addaction name="actionSettings"/>
+    <addaction name="actionSetup"/>
    </widget>
    <addaction name="menuFile"/>
   </widget>
@@ -181,9 +119,9 @@
     <string>New</string>
    </property>
   </action>
-  <action name="actionSettings">
+  <action name="actionSetup">
    <property name="text">
-    <string>Settings</string>
+    <string>Setup</string>
    </property>
   </action>
  </widget>
