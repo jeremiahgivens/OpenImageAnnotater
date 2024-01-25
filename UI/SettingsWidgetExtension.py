@@ -18,6 +18,15 @@ class SettingsWidgetExtension(Ui_SettingsWidget):
         self.importImageFolder.clicked.connect(self.browseForFolderOfImages)
         self.importVideo.clicked.connect(self.browseForVideo)
         self.importExisting.clicked.connect(self.browseForExistingAnnotatedSet)
+        self.confirmSettings.clicked.connect(self.onConfirmSettings)
+
+    def onConfirmSettings(self):
+        success = True
+        if self.outputHandler.setOutputFolderPath(self.outputPath.text()):
+            self.outputHandler.setUpFolder()
+        else:
+            success = False
+
 
     def browseForOutputPath(self):
         fname = QFileDialog.getExistingDirectory(None, 'Select your outpur folder', '../')

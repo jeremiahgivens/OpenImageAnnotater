@@ -12,7 +12,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_SettingsWidget(object):
     def setupUi(self, SettingsWidget):
         SettingsWidget.setObjectName("SettingsWidget")
-        SettingsWidget.resize(827, 715)
+        SettingsWidget.resize(457, 402)
         self.verticalLayout_7 = QtWidgets.QVBoxLayout(SettingsWidget)
         self.verticalLayout_7.setObjectName("verticalLayout_7")
         self.horizontalLayout = QtWidgets.QHBoxLayout()
@@ -147,6 +147,9 @@ class Ui_SettingsWidget(object):
         self.classList.setSizePolicy(sizePolicy)
         self.classList.setObjectName("classList")
         self.verticalLayout_3.addWidget(self.classList)
+        self.lineEdit = QtWidgets.QLineEdit(parent=SettingsWidget)
+        self.lineEdit.setObjectName("lineEdit")
+        self.verticalLayout_3.addWidget(self.lineEdit)
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setContentsMargins(-1, 0, -1, -1)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
@@ -169,7 +172,7 @@ class Ui_SettingsWidget(object):
         self.verticalLayout_3.addLayout(self.horizontalLayout_3)
         self.verticalLayout_3.setStretch(0, 1)
         self.verticalLayout_3.setStretch(1, 30)
-        self.verticalLayout_3.setStretch(2, 1)
+        self.verticalLayout_3.setStretch(3, 1)
         self.horizontalLayout_2.addLayout(self.verticalLayout_3)
         spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.horizontalLayout_2.addItem(spacerItem2)
@@ -177,9 +180,9 @@ class Ui_SettingsWidget(object):
         self.verticalLayout_5.setObjectName("verticalLayout_5")
         spacerItem3 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
         self.verticalLayout_5.addItem(spacerItem3)
-        self.startAnnotating = QtWidgets.QPushButton(parent=SettingsWidget)
-        self.startAnnotating.setObjectName("startAnnotating")
-        self.verticalLayout_5.addWidget(self.startAnnotating)
+        self.confirmSettings = QtWidgets.QPushButton(parent=SettingsWidget)
+        self.confirmSettings.setObjectName("confirmSettings")
+        self.verticalLayout_5.addWidget(self.confirmSettings)
         self.horizontalLayout_2.addLayout(self.verticalLayout_5)
         self.horizontalLayout_2.setStretch(0, 1)
         self.horizontalLayout_2.setStretch(1, 20)
@@ -209,7 +212,7 @@ class Ui_SettingsWidget(object):
         self.label_2.setText(_translate("SettingsWidget", "Class Labels"))
         self.addClass.setText(_translate("SettingsWidget", "Add"))
         self.deleteClass.setText(_translate("SettingsWidget", "Delete"))
-        self.startAnnotating.setText(_translate("SettingsWidget", "Start Annotating"))
+        self.confirmSettings.setText(_translate("SettingsWidget", "Confirm Settings"))
 
 
 if __name__ == "__main__":

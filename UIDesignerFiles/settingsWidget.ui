@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>827</width>
-    <height>715</height>
+    <width>457</width>
+    <height>402</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -247,7 +247,7 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,20,0">
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_3" stretch="1,30,1">
+      <layout class="QVBoxLayout" name="verticalLayout_3" stretch="1,30,0,1">
        <item>
         <widget class="QLabel" name="label_2">
          <property name="text">
@@ -267,6 +267,9 @@
           </sizepolicy>
          </property>
         </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit"/>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -332,9 +335,9 @@
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="startAnnotating">
+        <widget class="QPushButton" name="confirmSettings">
          <property name="text">
-          <string>Start Annotating</string>
+          <string>Confirm Settings</string>
          </property>
         </widget>
        </item>
