@@ -13,9 +13,25 @@ class OutputHandler():
 
     def setUpFolder(self):
         if os.path.exists(self.path):
-            rootPath = os.path.join(self.path, 'data')
-            if ~os.path.exists(rootPath):
-                os.makedirs(rootPath)
+            testPath = os.path.join(self.path, 'test')
+            self.makeImagesAndLabelsFolder(self.path, 'test')
+            self.makeImagesAndLabelsFolder(self.path, 'valid')
+            self.makeImagesAndLabelsFolder(self.path, 'train')
+
+            tempPath = os.path.join(self.path, 'temp')
+            self.makeDirIfNonExistent(tempPath)
+
+    def makeDirIfNonExistent(self, path):
+        if not os.path.exists(path):
+            os.makedirs(path)
+
+    def makeImagesAndLabelsFolder(self, root, name):
+        path = testPath = os.path.join(root, name)
+        self.makeDirIfNonExistent(path)
+        imagesPath = os.path.join(path, 'images')
+        labelsPath = os.path.join(path, 'labels')
+        self.makeDirIfNonExistent(imagesPath)
+        self.makeDirIfNonExistent(labelsPath)
 
 
     def addImageToFolder(self, path):

@@ -21,11 +21,16 @@ class SettingsWidgetExtension(Ui_SettingsWidget):
         self.confirmSettings.clicked.connect(self.onConfirmSettings)
 
     def onConfirmSettings(self):
+        self.setupOutputFolder()
+
+    def setupOutputFolder(self) -> bool:
         success = True
         if self.outputHandler.setOutputFolderPath(self.outputPath.text()):
             self.outputHandler.setUpFolder()
         else:
             success = False
+
+        return success
 
 
     def browseForOutputPath(self):
@@ -38,12 +43,15 @@ class SettingsWidgetExtension(Ui_SettingsWidget):
 
     def browseForFolderOfImages(self):
         fname = QFileDialog.getExistingDirectory(None, 'Select folder of images to import', '../')
-        # Add methods for importing folder here.
+        if self.setupOutputFolder():
+            pass
 
     def browseForVideo(self):
         fname = QFileDialog.getOpenFileName(None, 'Select video to import', '../')
-        # Add methods for importing folder here.
+        if self.setupOutputFolder():
+            pass
 
     def browseForExistingAnnotatedSet(self):
         fname = QFileDialog.getExistingDirectory(None, 'Select existing annotation set', '../')
-        # Add code for importing existing labeled data.
+        if self.setupOutputFolder():
+            pass
