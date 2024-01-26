@@ -44,7 +44,7 @@ class SettingsWidgetExtension(Ui_SettingsWidget):
     def browseForFolderOfImages(self):
         fname = QFileDialog.getExistingDirectory(None, 'Select folder of images to import', '../')
         if self.setupOutputFolder():
-            pass
+            self.outputHandler.importImageFolder(fname)
 
     def browseForVideo(self):
         fname = QFileDialog.getOpenFileName(None, 'Select video to import', '../')
