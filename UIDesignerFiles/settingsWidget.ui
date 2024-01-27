@@ -60,12 +60,7 @@
          </property>
          <item>
           <property name="text">
-           <string>YOLOv8</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>YOLOv5</string>
+           <string>YOLOv5/YOLOv8</string>
           </property>
          </item>
         </widget>
@@ -203,21 +198,21 @@
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_6">
            <item>
-            <widget class="QLabel" name="label_7">
+            <widget class="QLabel" name="totImages">
              <property name="text">
               <string>0</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="label_8">
+            <widget class="QLabel" name="labeledImages">
              <property name="text">
               <string>0</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="label_9">
+            <widget class="QLabel" name="unlabeled">
              <property name="text">
               <string>0</string>
              </property>

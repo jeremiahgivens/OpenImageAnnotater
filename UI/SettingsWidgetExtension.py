@@ -55,3 +55,9 @@ class SettingsWidgetExtension(Ui_SettingsWidget):
         fname = QFileDialog.getExistingDirectory(None, 'Select existing annotation set', '../')
         if self.setupOutputFolder():
             pass
+
+    def updateImageCounts(self, counts):
+        # format is [tot, labeled, unlabeled]
+        self.totImages.setText(str(counts[0]))
+        self.labeledImages.setText(str(counts[1]))
+        self.unlabeled.setText(str(counts[2]))

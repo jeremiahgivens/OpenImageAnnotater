@@ -17,6 +17,7 @@ class MainWindowExtension(Ui_MainWindow):
         self.actionSetup.triggered.connect(self.createNew)
         self.settingsWidget = QtWidgets.QWidget()
         self.settingsWindow = SettingsWidgetExtension(self.outputHandler, self.modelHandler, self.settingsWidget)
+        self.settingsWindow.outputHandler.settingsWidgetExtension = self.settingsWindow
 
     def createNew(self):
         self.settingsWidget.show()
@@ -38,4 +39,5 @@ class MainWindowExtension(Ui_MainWindow):
 
     def setAnnotateMode(self):
         pass
+
 
