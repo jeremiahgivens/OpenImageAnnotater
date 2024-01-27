@@ -10,8 +10,10 @@ class OutputHandler():
 
         # format is [tot, labeled, unlabeled]
         self.combinedImageCount = [0, 0, 0]
-        self.trainImageCount = [0, 0, 0]
-        self.validImageCount = [0, 0, 0]
+
+        # format is [train, valid, test]
+        self.labeledImageCount = [0, 0, 0]
+
 
     def setOutputFolderPath(self, path) -> bool:
         pathIsValid = os.path.exists(path)
@@ -21,7 +23,6 @@ class OutputHandler():
 
     def setUpFolder(self):
         if os.path.exists(self.root):
-            testPath = os.path.join(self.root, 'test')
             self.makeImagesAndLabelsFolder(self.root, 'test')
             self.makeImagesAndLabelsFolder(self.root, 'valid')
             self.makeImagesAndLabelsFolder(self.root, 'train')
@@ -68,8 +69,25 @@ class OutputHandler():
             self.updateImageCounts()
 
     def updateFileNumbers(self):
-        # path joining version for other paths
-        self.combinedImageCount[2] = len([name for name in os.listdir(self.unlabeledPath) if os.path.isfile(os.path.join(self.unlabeledPath, name))])
+        trainPath = os.path.join(self.root, 'train')
+        validPath = os.path.join(self.root, 'valid')
+        testPath = os.path.join(self.root, 'test')
+
+        self.labeledImageCount[0] = len(
+            [name for name in os.listdir(trainPath) if os.path.isfile(os.path.join(trainPath, name))])
+        self.labeledImageCount[1] = len(
+            [name for name in os.listdir(validPath) if os.path.isfile(os.path.join(validPath, name))])
+        self.labeledImageCount[2] = len(
+            [name for name in os.listdir(testPath) if os.path.isfile(os.path.join(testPath, name))])
+
+        self.combinedImageCount[2] = len(
+            [name for name in os.listdir(self.unlabeledPath) if os.path.isfile(os.path.join(self.unlabeledPath, name))])
+
+        self.combinedImageCount[0] = self.combinedImageCount[2]
+        for count in self.labeledImageCount:
+            self.combinedImageCount[0] += count
+
+        self.combinedImageCount[1] = self.combinedImageCount[0] - self.combinedImageCount[1]
 
     def updateImageCounts(self):
         self.settingsWidgetExtension.updateImageCounts(self.combinedImageCount)
