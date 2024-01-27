@@ -1,7 +1,6 @@
 import os
 import glob
 import shutil
-import numpy as np
 
 
 class OutputHandler():
@@ -22,7 +21,7 @@ class OutputHandler():
             self.makeImagesAndLabelsFolder(self.root, 'train')
 
             tempPath = os.path.join(self.root, 'temp')
-            unlabeledPath = os.path.join(self.root, 'unlabeled')
+            unlabeledPath = os.path.join(tempPath, 'unlabeled')
             self.makeDirIfNonExistent(tempPath)
             self.makeDirIfNonExistent(unlabeledPath)
 
@@ -43,15 +42,20 @@ class OutputHandler():
             unlabeledPath = os.path.join(self.root, 'temp', 'unlabeled')
 
             print(unlabeledPath)
-            
+
             files = []
             imgFormats = ['*.bmp', '*.dng', '*.jpeg', '*.jpg', '*.mpo', '*.png', '*.tif', '*.tiff', '*.webp', '*.pfm']
-            for format in imgFormats:
-                files.append(glob.glob(os.path.join(pathToImageFolder, format)))
+            for form in imgFormats:
+                files.append(glob.glob(os.path.join(pathToImageFolder, form)))
 
-            files = np.array(files)
-            files = files.ravel()
-            for f in files:
+            # Need this as one string array. There is probably a more optimal way so,
+            # TODO Find the Pythonic way of doing this.
+
+            combinedFiles = files[0]
+            for f in range(1, len(files)):
+                combinedFiles += files[f]
+
+            for f in combinedFiles:
                 shutil.copy(f, unlabeledPath)
 
 
