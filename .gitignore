@@ -2,3 +2,5 @@
 SupportClasses/__pycache__/
 
 *.pyc
+
+venv/
