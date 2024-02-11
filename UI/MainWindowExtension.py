@@ -12,18 +12,20 @@ class MainWindowExtension(Ui_MainWindow):
     def __init__(self, MainWindow):
         self.outputHandler = OutputHandler()
         self.modelHandler = ModelHandler()
+        self.settingsWidget = None
+        self.settingsWindow = None
         self.setupUi(MainWindow)
         self.connectInputs()
-        self.actionSetup.triggered.connect(self.createNew)
-        self.settingsWidget = QtWidgets.QWidget()
-        self.settingsWindow = SettingsWidgetExtension(self.outputHandler, self.modelHandler, self.settingsWidget)
-        self.settingsWindow.outputHandler.settingsWidgetExtension = self.settingsWindow
 
     def createNew(self):
         self.settingsWidget.show()
 
     def connectInputs(self):
-        pass
+        self.actionSetup.triggered.connect(self.createNew)
+        self.settingsWidget = QtWidgets.QWidget()
+        self.settingsWindow = SettingsWidgetExtension(self.outputHandler, self.modelHandler, self.settingsWidget)
+        self.settingsWindow.outputHandler.settingsWidgetExtension = self.settingsWindow
+        self.actionLoad_Existing.triggered.connect(self.settingsWindow.browseForOutputPath)
 
     def goToNextImage(self):
         pass
