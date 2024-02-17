@@ -68,6 +68,28 @@ class OutputHandler():
             self.updateFileNumbers()
             self.updateImageCounts()
 
+    def getPathToFirstImage(self):
+        unlabeledPath = os.path.join(self.root, 'temp', 'unlabeled')
+        if os.path.exists(unlabeledPath):
+            files = []
+            imgFormats = ['*.bmp', '*.dng', '*.jpeg', '*.jpg', '*.mpo', '*.png', '*.tif', '*.tiff', '*.webp', '*.pfm']
+            for form in imgFormats:
+                files.append(glob.glob(os.path.join(unlabeledPath, form)))
+
+            # Need this as one string array. There is probably a more optimal way so,
+            # TODO Find the Pythonic way of doing this.
+
+            combinedFiles = files[0]
+            for f in range(1, len(files)):
+                combinedFiles += files[f]
+
+            if len(combinedFiles) != 0:
+                return combinedFiles[0]
+            else:
+                return ""
+
+
+
     def updateFileNumbers(self):
         trainPath = os.path.join(self.root, 'train')
         validPath = os.path.join(self.root, 'valid')
