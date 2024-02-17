@@ -25,7 +25,13 @@ class MainWindowExtension(Ui_MainWindow):
         self.settingsWidget = QtWidgets.QWidget()
         self.settingsWindow = SettingsWidgetExtension(self.outputHandler, self.modelHandler, self.settingsWidget)
         self.settingsWindow.outputHandler.settingsWidgetExtension = self.settingsWindow
-        self.actionLoad_Existing.triggered.connect(self.settingsWindow.browseForOutputPath)
+        self.actionLoad_Existing.triggered.connect(self.loadExistingProject)
+
+    def loadExistingProject(self):
+        self.settingsWindow.browseForOutputPath()
+        if self.settingsWindow.setupOutputFolder():
+            print("Loaded existing project at " + self.settingsWindow.outputHandler.root)
+
 
     def goToNextImage(self):
         pass

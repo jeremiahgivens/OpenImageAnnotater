@@ -1,4 +1,4 @@
 
 class ImageAnnotator():
-    def __init__(self):
-        pass
+    def __init__(self, annotationProject):
+        self.annotationProject = annotationProject
