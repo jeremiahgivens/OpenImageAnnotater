@@ -3,6 +3,18 @@ from PyQt6.QtGui import QImage, QPixmap
 from PyQt6.QtCore import Qt
 import os
 
+
+class PixMapItem(QGraphicsPixmapItem):
+    def __init__(self):
+        super().__init__()
+
+    def mousePressEvent(self, event):
+        print("Mouse press event, x: " + str(event.pos().x()) + ", y: " + str(event.pos().y()))
+
+    def mouseMoveEvent(self, event):
+        print("Mouse move event, x: " + str(event.pos().x()) + ", y: " + str(event.pos().y()))
+
+
 class ImageAnnotator():
     def __init__(self, outputHandler, graphicsView):
         self.outputHandler = outputHandler
@@ -24,7 +36,7 @@ class ImageAnnotator():
         path = self.outputHandler.getPathToFirstImage()
         if os.path.exists(path):
             self.image_qt = QImage(path)
-            self.pic = QGraphicsPixmapItem()
+            self.pic = PixMapItem()
             pixMap = QPixmap.fromImage(self.image_qt)
             gvSize = self.graphicsView.size()
             pixMap = pixMap.scaled(gvSize.width(), gvSize.height(), Qt.AspectRatioMode.KeepAspectRatio)
