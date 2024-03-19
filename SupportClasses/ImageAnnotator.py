@@ -1,5 +1,5 @@
-from PyQt6.QtWidgets import QFileDialog, QGraphicsPixmapItem, QGraphicsScene
-from PyQt6.QtGui import QImage, QPixmap
+from PyQt6.QtWidgets import QFileDialog, QGraphicsPixmapItem, QGraphicsScene, QWidget
+from PyQt6.QtGui import QImage, QPixmap, QPainter, QColor
 from PyQt6.QtCore import Qt
 import os
 
@@ -29,6 +29,9 @@ class ImageAnnotator():
             pixMap = QPixmap.fromImage(self.image_qt)
             gvSize = self.graphicsView.size()
             pixMap = pixMap.scaled(gvSize.width(), gvSize.height(), Qt.AspectRatioMode.KeepAspectRatio)
+            painter = QPainter(pixMap)
+            painter.setPen(QColor(255, 34, 255, 255))
+            painter.drawRect(10, 10, 10, 10)
             self.pic.setPixmap(pixMap)
             print("Resizing")
 
@@ -40,6 +43,9 @@ class ImageAnnotator():
             pixMap = QPixmap.fromImage(self.image_qt)
             gvSize = self.graphicsView.size()
             pixMap = pixMap.scaled(gvSize.width(), gvSize.height(), Qt.AspectRatioMode.KeepAspectRatio)
+            painter = QPainter(pixMap)
+            painter.setPen(QColor(255, 34, 255, 255))
+            painter.drawRect(10, 10, 10, 10)
             self.pic.setPixmap(pixMap)
             self.scene.addItem(self.pic)
         else:
