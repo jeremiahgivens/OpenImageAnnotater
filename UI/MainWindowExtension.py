@@ -28,20 +28,21 @@ class MainWindowExtension(Ui_MainWindow):
         self.settingsWindow = SettingsWidgetExtension(self.outputHandler, self.modelHandler, self.settingsWidget)
         self.settingsWindow.outputHandler.settingsWidgetExtension = self.settingsWindow
         self.actionLoad_Existing.triggered.connect(self.loadExistingProject)
+        self.nextImage.clicked.connect(self.goToNextImage)
+        self.previousImage.clicked.connect(self.goToPreviousImage)
 
     def loadExistingProject(self):
         self.settingsWindow.browseForOutputPath()
         if self.settingsWindow.setupOutputFolder():
             print("Loaded existing project at " + self.settingsWindow.outputHandler.root)
-            self.imageAnnotator.load()
-
+            self.imageAnnotator.showNextImage()
 
 
     def goToNextImage(self):
-        pass
+        self.imageAnnotator.showNextImage()
 
     def goToPreviousImage(self):
-        pass
+        self.imageAnnotator.showPreviousImage()
 
     def setDeleteMode(self):
         pass

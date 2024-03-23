@@ -1,6 +1,8 @@
 import os
 import glob
 import shutil
+from random import randrange
+
 
 
 class OutputHandler():
@@ -68,7 +70,7 @@ class OutputHandler():
             self.updateFileNumbers()
             self.updateImageCounts()
 
-    def getPathToFirstImage(self):
+    def getPathToRandomImage(self):
         unlabeledPath = os.path.join(self.root, 'temp', 'unlabeled')
         if os.path.exists(unlabeledPath):
             files = []
@@ -84,7 +86,7 @@ class OutputHandler():
                 combinedFiles += files[f]
 
             if len(combinedFiles) != 0:
-                return combinedFiles[0]
+                return combinedFiles[randrange(len(combinedFiles))]
             else:
                 return ""
 
